@@ -1,16 +1,26 @@
 import mysql.connector
+import os
 from flask import Flask, render_template, request, redirect, session
 
 app = Flask(__name__)
 app.secret_key = "secret123"
 
 
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="123456789",
-    database="blood_bridge"
-)
+if os.getenv("MYSQLHOST"):
+    db = mysql.connector.connect(
+        host=os.getenv("MYSQLHOST"),
+        user=os.getenv("MYSQLUSER"),
+        password=os.getenv("MYSQLPASSWORD"),
+        database=os.getenv("MYSQLDATABASE"),
+        port=int(os.getenv("MYSQLPORT"))
+    )
+else:
+    db = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="123456789",
+        database="blood_bridge"
+    )
 
 cursor = db.cursor(buffered=True)
 
