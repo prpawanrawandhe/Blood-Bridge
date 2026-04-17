@@ -6,13 +6,19 @@ app = Flask(__name__)
 app.secret_key = "secret123"
 
 
-if os.getenv("MYSQLHOST"):
+from urllib.parse import urlparse
+
+url = os.getenv("mysql://root:cFFggwjDPtQomPFHyhHxBPSanlpOBIJc@trolley.proxy.rlwy.net:24322/railway")   # Render me ye set karega
+
+if url:
+    parsed = urlparse(url)
+
     db = mysql.connector.connect(
-        host=os.getenv("MYSQLHOST"),
-        user=os.getenv("MYSQLUSER"),
-        password=os.getenv("MYSQLPASSWORD"),
-        database=os.getenv("MYSQLDATABASE"),
-        port=int(os.getenv("MYSQLPORT"))
+        host=parsed.hostname,
+        user=parsed.username,
+        password=parsed.password,
+        database=parsed.path.lstrip('/'),
+        port=parsed.port
     )
 else:
     db = mysql.connector.connect(
