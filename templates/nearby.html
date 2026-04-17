@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nearby Hospitals & Blood Banks</title>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        body { margin: 0; font-family: Arial; }
+        #map { height: 100vh; }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+
+
+        var map = L.map('map').setView([lat, lon], 14);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        // 📍 User marker
+        L.marker([lat, lon]).addTo(map)
+            .bindPopup("You are here 📍")
+            .openPopup();
+
+        var query = `
+        [out:json];
+        (
+          node["amenity"="hospital"](around:5000, ${lat}, ${lon});
+          node["amenity"="blood_bank"](around:5000, ${lat}, ${lon});
+        );
+        out;
+        `;
+
+        var url = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(query);
+
+
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            data.elements.forEach(place => {
+                var name = place.tags.name || "Unknown";
+
+                L.marker([place.lat, place.lon]).addTo(map)
+                    .bindPopup(name);
+            });
+        });
+
+    }, function() {
+        alert("Location access denied ❌");
+    });
+</script>
+
+</body>
+</html>

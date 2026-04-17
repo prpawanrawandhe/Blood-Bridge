@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ccbebe, #b32323);
+            height: 100vh;
+        }
+
+        .register-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+
+        .register-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .register-box h2 {
+            margin-bottom: 20px;
+            color: #cc0000;
+        }
+
+
+        .register-box input,
+        .register-box select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            outline: none;
+        }
+
+
+        .register-box button {
+            width: 100%;
+            padding: 12px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .register-box button:hover {
+            background: #cc0000;
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="register-container">
+        <form method="POST" class="register-box">
+            <h2>Create Account 🩸</h2>
+
+            <input type="text" name="name" placeholder="Full Name" required>
+
+            <input type="email" name="email" placeholder="Email Address" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <select name="blood_group" required>
+                <option value="">Select Blood Group</option>
+                <option>A+</option>
+                <option>B+</option>
+                <option>O+</option>
+                <option>AB+</option>
+            </select>
+
+            <select name="role">
+                <option value="donor">Donor</option>
+                <option value="patient">Patient</option>
+            </select>
+
+            <input type="city" name="city" placeholder="City" required>
+
+            <button type="submit">Register Now ❤️</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

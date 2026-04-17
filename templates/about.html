@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>About Us - Blood Bridge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ab1c1c, #cf8c8c);
+            height: 100vh;
+        }
+
+        .about-container {
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .about-container h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            font-size: 18px;
+            max-width: 700px;
+            margin: auto;
+            margin-bottom: 30px;
+        }
+
+        .about-box {
+            background: white;
+            color: #333;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 12px;
+            max-width: 600px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .about-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-box h2 {
+            color: #cc0000;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="about-container">
+
+        <h1>About Blood Bridge 🩸</h1>
+
+        <p class="intro">
+            Blood Bridge is a smart platform designed to connect blood donors with patients in need.
+            Our goal is simple — to save lives by making blood easily accessible during emergencies.
+        </p>
+
+        <div class="about-box">
+            <h2>🌍 Our Mission</h2>
+            <p>
+                We aim to build a strong community of donors who are always ready to help.
+                By reducing the gap between donors and patients, we make life-saving help faster and more efficient.
+            </p>
+        </div>
+
+        <div class="about-box">
+            <h2>⚡ What We Do</h2>
+            <p>
+                We provide a platform where patients can request blood and instantly find matching donors.
+                The system ensures quick response and easy communication between users.
+            </p>
+        </div>
+
+        <div class="about-box">
+            <h2>❤️ Why It Matters</h2>
+            <p>
+                Every drop of blood can save a life.
+                In emergencies, time matters the most — and Blood Bridge helps reduce that critical delay.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

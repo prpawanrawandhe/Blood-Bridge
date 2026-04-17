@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Request Blood</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<style>
+
+    body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ccbebe, #b32323);
+            height: 100vh;
+        }
+
+    .request-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+
+    .request-box {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        width: 320px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .request-box h2 {
+        margin-bottom: 20px;
+        color: #cc0000;
+    }
+
+
+    .request-box input,
+    .request-box select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        outline: none;
+    }
+
+
+    .request-box button {
+        width: 100%;
+        padding: 12px;
+        background: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .request-box button:hover {
+        background: #cc0000;
+        transform: scale(1.03);
+    }
+
+    
+</style>
+
+<body>
+
+    <div class="request-container">
+        <form method="POST" class="request-box">
+            <h2>Request Blood 🩸</h2>
+
+            <input type="text" name="name" placeholder="Your Name" required>
+
+            <select name="blood_group" required>
+                <option value="">Select Blood Group</option>
+                <option>A+</option>
+                <option>B+</option>
+                <option>O+</option>
+                <option>AB+</option>
+            </select>
+
+            <input type="text" name="city" placeholder="City" required>
+
+            <button type="submit">Submit Request ❤️</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
