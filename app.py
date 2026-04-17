@@ -8,7 +8,7 @@ app.secret_key = "secret123"
 
 from urllib.parse import urlparse
 
-url = os.getenv("mysql://root:cFFggwjDPtQomPFHyhHxBPSanlpOBIJc@trolley.proxy.rlwy.net:24322/railway")   # Render me ye set karega
+url = os.getenv("DATABASE_URL")   # Render me ye set karega
 
 if url:
     parsed = urlparse(url)
